@@ -12,6 +12,7 @@ module RailsRinku
     end
     options.reverse_merge!(:link => :all, :html => {})
     text = h(text) unless text.html_safe?
+    text = File.basename(text)
 
     tag_options_method = if Gem::Version.new(Rails.version) >= Gem::Version.new("5.1")
       # Rails >= 5.1
